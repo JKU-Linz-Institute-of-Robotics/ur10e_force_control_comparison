@@ -1,0 +1,17 @@
+# parameters
+payload_ACF = 34 # 1/10 kg # heavy tool
+
+global acc_contact = 2 # m/s^2
+global vel_contact = 0.25 # m/s
+global acc_grind = 9 # m/s^2
+global vel_grind = 0.9 # 0.25 # max 0.9 # m/s
+
+# stopping
+global acc_stop = 50 # m/s^2
+
+# initial pose (check installation variables!)
+rotvec_init = rpy2rotvec([d2r(rpy_contact_ACF[0]), d2r(rpy_contact_ACF[1]), d2r(rpy_contact_ACF[2])])
+global p_init = p[-0.727, 0.265, 0.082, rotvec_init[0], rotvec_init[1], rotvec_init[2]]
+
+# init ACF payload
+modbus_set_output_register("set_payload_ACF", payload_ACF)

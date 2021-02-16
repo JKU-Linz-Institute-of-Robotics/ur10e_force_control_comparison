@@ -1,0 +1,16 @@
+# define function
+def doLineTest(p0, p1, pe, vel_updown, acc_updown, vel, acc, dec):   
+    # move to init / contact position and wait
+    movel(p0, a=acc_updown, v=vel_updown)
+    sleep(4)
+
+    # start movement
+    movep(p1, a=acc, v=vel, r=0) # no blend
+    
+    # stop the movement and wait
+    stopl(dec)
+    sleep(2)
+    
+    # move upwards
+    movel(pe, a=acc_updown, v=vel_updown)
+end

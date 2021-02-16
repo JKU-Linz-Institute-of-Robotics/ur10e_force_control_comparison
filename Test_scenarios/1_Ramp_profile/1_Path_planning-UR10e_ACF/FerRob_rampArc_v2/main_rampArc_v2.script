@@ -1,0 +1,2 @@
+# main program
+doRampArcTest(p_0s, p_1s, p_1m, p_1e, p_2m, p_2e, p_3m, p_3e, p_4m, p_4e, p_5m, p_5e, p_6m, p_6e, p_7, p_7e, vel_grind, acc_grind, acc_stop, rad_edge, rad_ramp)

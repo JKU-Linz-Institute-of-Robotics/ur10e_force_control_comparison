@@ -1,0 +1,13 @@
+# define variables for ramp test (circular arc)
+p_01_l = -0.53 # approximated total distance considering arc lengths: 0.514
+p_01_h = 0
+p_01 = p[0, p_01_l, p_01_h, 0, 0, 0] # zero orientation
+
+p_0e_l = p_01_l
+p_0e_h = 0.07 # 7cm above (same height as p_start)
+p_0e = p[0, p_0e_l, p_0e_h, 0, 0, 0] # zero orientation
+
+# define poses (position and orientation)
+global p_0 = p_init
+global p_1 = pose_add(p_0, p_01)
+global p_e = pose_add(p_0, p_0e)

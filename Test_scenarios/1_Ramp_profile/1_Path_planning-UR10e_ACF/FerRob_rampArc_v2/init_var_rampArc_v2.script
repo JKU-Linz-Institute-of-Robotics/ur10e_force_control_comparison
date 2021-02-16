@@ -1,0 +1,118 @@
+# define variables for ramp test (circular arc)
+p_00s_l = -0.010 # consider minimal offset to the corner at the start
+p_00s = p[0, p_00s_l, 0, 0, 0, 0]
+
+p_01s_l = -0.02
+p_01s = p[0, p_01s_l, 0, 0, 0, 0]
+
+p_01m_l = -0.08457
+p_01m_h = -0.01071
+p_01m_angle = -d2r(18.83)
+p_01m_rotvec = rpy2rotvec([p_01m_angle, 0, 0])
+p_01m = p[0, p_01m_l, p_01m_h, p_01m_rotvec[0], p_01m_rotvec[1], p_01m_rotvec[2]]
+
+p_01e_l = -0.14222
+p_01e_h = -0.04169
+p_01e_angle = -d2r(37.67)
+p_01e_rotvec = rpy2rotvec([p_01e_angle, 0, 0])
+p_01e = p[0, p_01e_l, p_01e_h, p_01e_rotvec[0], p_01e_rotvec[1], p_01e_rotvec[2]]
+
+p_02m_l = -0.21429
+p_02m_h = -0.08042
+p_02m_angle = -d2r(18.83)
+p_02m_rotvec = rpy2rotvec([p_02m_angle, 0, 0])
+p_02m = p[0, p_02m_l, p_02m_h, p_02m_rotvec[0], p_02m_rotvec[1], p_02m_rotvec[2]]
+
+p_02e_l = -0.295
+p_02e_h = -0.09380
+p_02e = p[0, p_02e_l, p_02e_h, 0, 0, 0] # zero orientation
+
+p_03m_l = -0.31950
+p_03m_h = -0.09076
+p_03m_angle = -d2r(-14.18)
+p_03m_rotvec = rpy2rotvec([p_03m_angle, 0, 0])
+p_03m = p[0, p_03m_l, p_03m_h, p_03m_rotvec[0], p_03m_rotvec[1], p_03m_rotvec[2]]
+
+p_03e_l = -0.34250
+p_03e_h = -0.08180
+p_03e_angle = -d2r(-28.36)
+p_03e_rotvec = rpy2rotvec([p_03e_angle, 0, 0])
+p_03e = p[0, p_03e_l, p_03e_h, p_03e_rotvec[0], p_03e_rotvec[1], p_03e_rotvec[2]]
+
+p_04m_l = -0.36550
+p_04m_h = -0.07285
+p_04m_angle = -d2r(-14.18)
+p_04m_rotvec = rpy2rotvec([p_04m_angle, 0, 0])
+p_04m = p[0, p_04m_l, p_04m_h, p_04m_rotvec[0], p_04m_rotvec[1], p_04m_rotvec[2]]
+
+p_04e_l = -0.39
+p_04e_h = -0.06980
+p_04e = p[0, p_04e_l, p_04e_h, 0, 0, 0] # zero orientation
+
+p_05m_l = p_04e_l + (p_04e_l - p_04m_l)
+p_05m_h = p_04m_h
+p_05m_angle = 0 # -p_04m_angle
+p_05m_rotvec = rpy2rotvec([p_05m_angle, 0, 0])
+p_05m = p[0, p_05m_l, p_05m_h, p_05m_rotvec[0], p_05m_rotvec[1], p_05m_rotvec[2]]
+
+p_05e_l = p_04e_l + (p_04e_l - p_03e_l)
+p_05e_h = p_03e_h
+p_05e_angle = 0 # -p_03e_angle
+p_05e_rotvec = rpy2rotvec([p_05e_angle, 0, 0])
+p_05e = p[0, p_05e_l, p_05e_h, p_05e_rotvec[0], p_05e_rotvec[1], p_05e_rotvec[2]]
+
+p_06m_l = p_04e_l + (p_04e_l - p_03m_l)
+p_06m_h = p_03m_h
+p_06m_angle = 0 # -p_03m_angle
+p_06m_rotvec = rpy2rotvec([p_06m_angle, 0, 0])
+p_06m = p[0, p_06m_l, p_06m_h, p_06m_rotvec[0], p_06m_rotvec[1], p_06m_rotvec[2]]
+
+p_06e_l = p_04e_l + (p_04e_l - p_02e_l)
+p_06e_h = p_02e_h
+p_06e = p[0, p_06e_l, p_06e_h, 0, 0, 0] # zero orientation
+
+p_07_l = -(0.5 - 0.005) # consider minimal offset to the corner at the end
+p_07_h = p_06e_h
+p_07 = p[0, p_07_l, p_07_h, 0, 0, 0] # zero orientation
+
+p_07e_l = p_07_l
+p_07e_h = 0
+p_07e = p[0, p_07e_l, p_07e_h, 0, 0, 0] # zero orientation
+
+# define poses (position and orientation)
+p_0 = p_init
+global p_0s = pose_add(p_0, p_00s)
+global p_1s = pose_add(p_0, p_01s)
+global p_1m = pose_add(p_0, p_01m)
+global p_1e = pose_add(p_0, p_01e)
+global p_2m = pose_add(p_0, p_02m)
+global p_2e = pose_add(p_0, p_02e)
+global p_3m = pose_add(p_0, p_03m)
+global p_3e = pose_add(p_0, p_03e)
+global p_4m = pose_add(p_0, p_04m)
+global p_4e = pose_add(p_0, p_04e)
+global p_5m = pose_add(p_0, p_05m)
+global p_5e = pose_add(p_0, p_05e)
+global p_6m = pose_add(p_0, p_06m)
+global p_6e = pose_add(p_0, p_06e)
+global p_7 = pose_add(p_0, p_07)
+global p_7e = pose_add(p_0, p_07e)
+    
+# check if orientation of given poses should be used
+if(not with_orientation):
+    p_1s[3] = p_init[3] p_1s[4] = p_init[4] p_1s[5] = p_init[5]
+    p_1m[3] = p_init[3] p_1m[4] = p_init[4] p_1m[5] = p_init[5]
+    p_1e[3] = p_init[3] p_1e[4] = p_init[4] p_1e[5] = p_init[5]
+    p_2m[3] = p_init[3] p_2m[4] = p_init[4] p_2m[5] = p_init[5]
+    p_2e[3] = p_init[3] p_2e[4] = p_init[4] p_2e[5] = p_init[5]
+    p_3m[3] = p_init[3] p_3m[4] = p_init[4] p_3m[5] = p_init[5]
+    p_3e[3] = p_init[3] p_3e[4] = p_init[4] p_3e[5] = p_init[5]
+    p_4m[3] = p_init[3] p_4m[4] = p_init[4] p_4m[5] = p_init[5]
+    p_4e[3] = p_init[3] p_4e[4] = p_init[4] p_4e[5] = p_init[5]
+    p_5m[3] = p_init[3] p_5m[4] = p_init[4] p_5m[5] = p_init[5]
+    p_5e[3] = p_init[3] p_5e[4] = p_init[4] p_5e[5] = p_init[5]
+    p_6m[3] = p_init[3] p_6m[4] = p_init[4] p_6m[5] = p_init[5]
+    p_6e[3] = p_init[3] p_6e[4] = p_init[4] p_6e[5] = p_init[5]
+    p_7[3] = p_init[3] p_7[4] = p_init[4] p_7[5] = p_init[5]
+    p_7e[3] = p_init[3] p_7e[4] = p_init[4] p_7e[5] = p_init[5]
+end

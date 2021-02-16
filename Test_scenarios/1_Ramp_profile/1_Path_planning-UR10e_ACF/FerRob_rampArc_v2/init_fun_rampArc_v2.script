@@ -1,0 +1,26 @@
+# define function
+def doRampArcTest(p0s, p1s, p1m, p1e, p2m, p2e, p3m, p3e, p4m, p4e, p5m, p5e, p6m, p6e, p7, p7e, vel, acc, dec, blend_rad, blend_rad_ramp):
+    ori_mode = 0 # interpolate orientation
+    # ori_mode = 1 # fixed mode, i.e. keep orientation constant relative to the tangent of the circular arc
+    
+    # move to init / contact position and wait
+    movel(p0s, a=acc*3, v=vel)
+    sleep(4)
+
+    # start movement
+    movep(p1s, a=acc, v=vel, r=blend_rad)
+    movec(p1m, p1e, a=acc, v=vel, r=blend_rad, mode=ori_mode)
+    movec(p2m, p2e, a=acc, v=vel, r=blend_rad, mode=ori_mode)
+    movec(p3m, p3e, a=acc*0.7, v=vel, r=blend_rad_ramp, mode=ori_mode)
+    movec(p4m, p4e, a=acc*0.7, v=vel, r=blend_rad_ramp, mode=ori_mode)
+    movec(p5m, p5e, a=acc, v=vel, r=blend_rad, mode=0) # use given zero orientation
+    movec(p6m, p6e, a=acc, v=vel, r=blend_rad, mode=0) # use given zero orientation
+    movep(p7, a=acc, v=vel, r=0) # no blend
+    
+    # stop the movement and wait
+    stopl(dec)
+    sleep(2)
+    
+    # move upwards
+    movel(p7e, a=acc*3, v=vel)
+end

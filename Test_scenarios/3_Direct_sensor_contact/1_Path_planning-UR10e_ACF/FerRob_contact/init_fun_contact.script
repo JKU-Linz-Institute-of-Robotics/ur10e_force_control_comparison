@@ -1,0 +1,11 @@
+# define function
+def doContactTest(p0, pe, sleep_time, vel, acc):     
+    # move to init / contact position
+    movel(p0, a=acc*3, v=vel)
+    
+    # wait a moment
+    sleep(sleep_time) # wait
+    
+    # move upwards
+    movel(pe, a=acc*3, v=vel)
+end

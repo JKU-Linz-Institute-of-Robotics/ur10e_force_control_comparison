@@ -1,0 +1,2 @@
+# main program
+doLineTest(p_0, p_1, p_e, vel_contact, acc_contact, vel_grind, acc_grind, acc_stop)

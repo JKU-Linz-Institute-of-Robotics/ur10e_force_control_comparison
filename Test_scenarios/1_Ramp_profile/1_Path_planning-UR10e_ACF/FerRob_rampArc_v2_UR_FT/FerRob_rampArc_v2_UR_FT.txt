@@ -1,0 +1,16 @@
+ Programm
+   VorStart
+     Script: init_par_rampArc_v2_UR_FT.script
+     Script: init_var_rampArc_v2_UR_FT.script
+     Script: init_fun_rampArc_v2_UR_FT.script
+   Roboterprogramm
+     FahreLinear
+       p_start
+       AOK
+         Einstellen DO[1]=Ein
+         'p_contact'
+          zero_ftsensor()
+         Warten: 0.2
+         'Script: main_ramp_v3.script'
+         Script: main_rampArc_v2_UR_FT.script
+         Einstellen DO[1]=Aus

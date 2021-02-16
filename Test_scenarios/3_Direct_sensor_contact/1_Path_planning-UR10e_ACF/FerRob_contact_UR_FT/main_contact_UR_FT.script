@@ -1,0 +1,2 @@
+# main program
+doContactTest(p_0, p_e, t_sleep, vel_grind, acc_grind)

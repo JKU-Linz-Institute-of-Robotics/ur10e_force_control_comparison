@@ -1,0 +1,27 @@
+# parameters
+payload_ACF = 34 # 1/10 kg # heavy tool
+
+global acc_grind = 0.7 # m/s^2
+global vel_grind = 0.1 # 0.25 # m/s
+global t_sleep = 6 # s
+
+# UR force control
+force_damping = 0 # default 0.005
+force_scaling = 1 # default 1
+global FT_d = [0, 0, 100, 0, 0, 0]
+global force_selection_vector = [0, 0, 1, 0, 0, 0] # only consider Force in z
+global limits = [0.01, 0.003, vel_grind, 0.15, 0.15, 0.15] # m, m, m/s, rad, rad, rad
+
+# stopping
+global acc_stop = 50 # m/s^2
+
+# initial pose (check installation variables!)
+rotvec_init = rpy2rotvec([d2r(rpy_contact_UR[0]), d2r(rpy_contact_UR[1]), d2r(rpy_contact_UR[2])])
+global p_init = p[pos_contact_UR[0], pos_contact_UR[1], pos_contact_UR[2], rotvec_init[0], rotvec_init[1], rotvec_init[2]]
+
+# init ACF payload
+modbus_set_output_register("set_payload_ACF", payload_ACF)
+
+# init damping and scaling of UR force control
+force_mode_set_damping(force_damping)
+force_mode_set_gain_scaling(force_scaling) # value larger than 1 can make force mode unstable

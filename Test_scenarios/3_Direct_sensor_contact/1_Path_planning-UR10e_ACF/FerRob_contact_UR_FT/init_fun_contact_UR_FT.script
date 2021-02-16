@@ -1,0 +1,27 @@
+# define TCP force control function
+thread thread_properties_calculation_FT_TCP():
+    while (True):
+      # dynamically change force frame to actual TCP frame (no additional frame transformation needed)
+      force_mode(get_actual_tcp_pose(), force_selection_vector, FT_d, 2, limits) # use TCP frame as force frame
+      sync()
+    end
+end
+
+# define path planning function
+def doContactTest(p0, pe, sleep_time, vel, acc):
+    # activate force control with TCP frame as force frame (force variable will be changed dynamically)
+    global thread_handler_FT_TCP = run thread_properties_calculation_FT_TCP()
+
+    # move to init / contact position
+    movel(p0, a=acc, v=vel)
+    
+    # wait a moment
+    sleep(sleep_time) # wait
+	
+    # kill force control thread and reset robot mode to normal operation
+    kill thread_handler_FT_TCP
+    end_force_mode()
+    
+    # move upwards
+    movel(pe, a=acc*3, v=vel)
+end

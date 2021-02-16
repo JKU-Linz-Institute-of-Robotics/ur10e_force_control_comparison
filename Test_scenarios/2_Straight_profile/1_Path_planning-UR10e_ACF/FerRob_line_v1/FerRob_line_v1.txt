@@ -1,0 +1,15 @@
+ Programm
+   VorStart
+     Script: init_par_line_v1.script
+     Script: init_var_line_v1.script
+     Script: init_fun_line_v1.script
+   Roboterprogramm
+     FahreLinear
+       p_start
+       AOK
+         Einstellen DO[1]=Ein
+         'p_contact'
+          zero_ftsensor()
+         Warten: 0.2
+         Script: main_line_v1.script
+         Einstellen DO[1]=Aus
