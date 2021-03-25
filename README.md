@@ -1,5 +1,8 @@
-# ur10e_force_control_comparison
-Test setup and test scenarios for the comparison/assessment of UR10e force control
+# Assessment of UR10e Force Control
+Test setup and test scenarios for the comparison/assessment of UR10e force control.
+
+This repository also contains the data of the accepted RAAD 2021 paper
+Stefan Gadringer, Hubert Gattringer, Andreas Mueller: Assessment of Universal Robot Force Control and External Force Compliance Device for Surface Treatment, 30th International Conference on Robotics in Alpe-Adria-Danube Region (RAAD), 2021.
 
 ## General Information UR10e/ACF Comparison
 
