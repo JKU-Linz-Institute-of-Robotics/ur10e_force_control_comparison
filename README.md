@@ -1,8 +1,11 @@
 # Assessment of UR10e Force Control
 Test setup and test scenarios for the comparison/assessment of UR10e force control.
 
-This repository also contains the data of the accepted RAAD 2021 paper
-Stefan Gadringer, Hubert Gattringer, Andreas Mueller: Assessment of Universal Robot Force Control and External Force Compliance Device for Surface Treatment, 30th International Conference on Robotics in Alpe-Adria-Danube Region (RAAD), 2021.
+This repository also contains the data of the
+* accepted open-access journal paper (Mechanical Sciences, Advances in Service and Industrial Robotics – RAAD2021)\
+Gadringer S., Gattringer H., Mueller A.,  Assessment of force control for surface finishing – An experimental comparison between Universal Robots UR10e and FerRobotics active contact flange, *Mechanical Sciences*, 2022.
+* published conference paper (RAAD 2021)\
+Gadringer S., Gattringer H., Mueller A., Assessment of Universal Robot Force Control and External Force Compliance Device for Surface Treatment, *30th International Conference on Robotics in Alpe-Adria-Danube Region (RAAD)*, Springer, https://doi.org/10.1007/978-3-030-75259-0_9, 2021.
 
 ## General Information UR10e/ACF Comparison
 
